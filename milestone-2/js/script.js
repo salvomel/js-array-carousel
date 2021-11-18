@@ -26,7 +26,7 @@ const text = [
 // INSERISCO IMMAGINI
 
 const bigImageContainer = document.querySelector('.big-image-container');
-// const thumbs = document.querySelector('.thumbs');
+const thumbs = document.querySelector('.thumbs');
 
 // POPOLO CONTAINER PER OGNI ELEMENTO DELL'ARRAY
 for(let i=0; i<items.length; i++) {
@@ -35,7 +35,7 @@ for(let i=0; i<items.length; i++) {
     const thisText = text[i];
 
     const newImage = `
-    <div class="single-image>
+    <div class="single-image">
         <img src="${thisPath}" alt="Img ${i}">
 
         <div class="single-image-text">
@@ -46,11 +46,20 @@ for(let i=0; i<items.length; i++) {
     `;
 
     bigImageContainer.innerHTML += newImage;
+
+    const newThumb = `
+    <div class="single-thumb">
+        <img src="${thisPath}" alt="Img ${i}">
+    </div>
+    `;
+
+    thumbs.innerHTML += newThumb;
 }
 
 // CLASSE ACTIVE
 let activeImage = 0;
 const allImages = document.getElementsByClassName('single-image');
+const allThumbs = document.getElementsByClassName('single-thumb')
 allImages[activeImage].classList.add('active');
-
+allThumbs[activeImage].classList.add('active');
 
